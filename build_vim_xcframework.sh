@@ -85,7 +85,7 @@ ln -s Frameworks_Simulator Frameworks
 
 make distclean
 #  --enable-terminal
-./configure vim_cv_toupper_broken=no vim_cv_terminfo=no vim_cv_tgetent=zero vim_cv_memmove_handles_overlap=no vim_cv_memcpy_handles_overlap=no vim_cv_bcopy_handles_overlap=no vim_cv_tty_group=world vim_cv_stat_ignores_slash=yes vim_cv_getcwd_broken=no --with-tlib=ncurses --with-features=big CC=clang CXX=clang++ CFLAGS="-DEXITFREE -arch x86_64 -O2 -mios-simulator-version-min=14.0 -isysroot $SIM_SDKROOT" CPPFLAGS="-DEXITFREE -arch x86_64 -O2 -mios-simulator-version-min=14.0 -isysroot $SIM_SDKROOT" CXXFLAGS="-DEXITFREE -arch x86_64 -O2 -mios-simulator-version-min=14.0 -isysroot $SIM_SDKROOT" LDFLAGS="-arch x86_64 -O2 -shared -mios-simulator-version-min=14.0 -isysroot $SIM_SDKROOT  -F$FRAMEWORKS -framework ios_system "  --build="$BUILD_TRIPLE" --host=arm-apple-darwin
+./configure vim_cv_toupper_broken=no vim_cv_terminfo=no vim_cv_tgetent=zero vim_cv_memmove_handles_overlap=no vim_cv_memcpy_handles_overlap=no vim_cv_bcopy_handles_overlap=no vim_cv_tty_group=world vim_cv_stat_ignores_slash=yes vim_cv_getcwd_broken=no --with-tlib=ncurses --with-features=big CC=clang CPP="clang -E" CXX=clang++ CFLAGS="-DEXITFREE -arch arm64 -arch x86_64 -O2 -mios-simulator-version-min=14.0 -isysroot $SIM_SDKROOT" CPPFLAGS="-DEXITFREE -O2 -mios-simulator-version-min=14.0 -isysroot $SIM_SDKROOT" CXXFLAGS="-DEXITFREE -arch arm64 -arch x86_64 -O2 -mios-simulator-version-min=14.0 -isysroot $SIM_SDKROOT" LDFLAGS="-arch arm64 -arch x86_64 -O2 -shared -mios-simulator-version-min=14.0 -isysroot $SIM_SDKROOT  -F$FRAMEWORKS -framework ios_system "  --build="$BUILD_TRIPLE" --host=arm-apple-darwin
 
 # 2) make. This creates ./src/vim, a Mach-O 64-bit dynamically linked shared library for arm64. 
 make -j3
